@@ -7,6 +7,10 @@ from modules import write
 def main():
 
     st.title("$ \nabla $")
+    st.title("$\nabla$")
+    st.title("$\Delta$")
+
+
 
     book = read.read_book()
 
