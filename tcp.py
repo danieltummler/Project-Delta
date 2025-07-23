@@ -5,10 +5,7 @@ from modules import read
 from modules import write
 
 def main():
-
-    st.title("$ \nabla $")
-    st.title("$\nabla$")
-    st.title("$\Delta$")
+    st.title("$\Delta\nabla$")
 
 
 
