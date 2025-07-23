@@ -6,7 +6,7 @@ from modules import write
 
 def main():
 
-    st.title("$\nabla$")
+    st.title("$ \nabla $")
 
     book = read.read_book()
 
