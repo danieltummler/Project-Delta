@@ -6,7 +6,7 @@ from modules import write
 
 def main():
 
-    st.title("Project $\Delta$")
+    st.title("Project $\nabla$")
 
     book = read.read_book()
 
