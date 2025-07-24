@@ -5,7 +5,7 @@ from modules import read
 from modules import write
 
 def main():
-    st.title("$\Delta$")
+    st.markdown("# $\\nabla$")
 
 
 
