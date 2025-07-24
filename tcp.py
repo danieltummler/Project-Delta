@@ -5,9 +5,8 @@ from modules import read
 from modules import write
 
 def main():
+
     st.markdown("# $\\nabla$")
-
-
 
     book = read.read_book()
 
@@ -17,6 +16,10 @@ def main():
     cocktail_info = write.show_cocktail_matrix(book = book)
 
     write.show_cocktail(cocktail_info = cocktail_info)
+    try:
+        write.show_picture(cocktail_info = cocktail_info)
+    except:
+        st.write("No pictures.")
 
 
 
