@@ -15,7 +15,7 @@ def show_cocktail_matrix(book):
     selection = st.pills(label = "Cocktails",
                          options = list_books,
                          selection_mode = "single",
-                         default = list_books[-1])
+                         default = list_books[1])
     
     cocktail_info = [cocktail for cocktail in book if cocktail["name"] == selection][0]
 
