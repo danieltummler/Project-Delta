@@ -1,5 +1,5 @@
 import streamlit as st
-import pandas as pd
+import os
 
 def show_list_cocktails_from_book(book):
 
@@ -15,7 +15,7 @@ def show_cocktail_matrix(book):
     selection = st.pills(label = "Cocktails",
                          options = list_books,
                          selection_mode = "single",
-                         default = "Mezcal Mule")
+                         default = list_books[-1])
     
     cocktail_info = [cocktail for cocktail in book if cocktail["name"] == selection][0]
 
@@ -36,3 +36,18 @@ def show_cocktail(cocktail_info):
 
     for key in ["glass", "garnish", "directions"]:
         col2.write(f"{key.title()}: {cocktail_info[key] if cocktail_info[key] != '' else 'N/A'}")
+
+def show_picture(cocktail_info):
+
+    base_name = cocktail_info["name"].replace(" ", "_").lower()
+
+    pictures_list = [x for x in os.listdir("pictures") if x.startswith(base_name)]    
+
+    # path = f"pictures/{base_name}_0.jpg"
+
+    for num, picture_name in enumerate(pictures_list):
+
+        path = f"pictures/{picture_name}"
+
+        st.image(image = path, caption = f"{cocktail_info['name']} - {num}")
+
