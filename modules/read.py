@@ -17,3 +17,18 @@ def read_book(book_selection):
 
     return book
 
+def read_ingredients(cocktails):
+
+    all_ingredients = list()
+
+    for cocktail in cocktails:
+        cocktail_ingredients = np.array(cocktail.get("ingredients"))[:, 1]
+        cocktail_ingredients = [ingredient.lower() for ingredient in cocktail_ingredients]
+
+        all_ingredients.extend(cocktail_ingredients)
+
+    unique_ingredients = list(set(all_ingredients))
+
+    unique_ingredients = pd.Series(unique_ingredients).sort_values()
+
+    return unique_ingredients
