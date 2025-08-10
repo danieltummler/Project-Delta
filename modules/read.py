@@ -4,17 +4,12 @@ import pickle
 import os
 import streamlit as st
 
-def read_book():
+def read_book(book_selection):
 
-    book_name = st.selectbox(label = "Book Name",
-                             options = ["experimental_cocktail_club_book.pkl", "fenix_cocktail_bar_book.pkl"],
-                             index = 1)
+   
+    if book_selection in os.listdir("cocktail_books"):
 
-    # books = os.listdir()
-  
-    if book_name:
-
-        with open(file = book_name, mode = "rb") as file:
+        with open(file = f"cocktail_books/{book_selection}", mode = "rb") as file:
             book = pickle.load(file = file)
 
     else:

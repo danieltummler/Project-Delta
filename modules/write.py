@@ -15,7 +15,7 @@ def show_cocktail_matrix(book):
     selection = st.pills(label = "Cocktails",
                          options = list_books,
                          selection_mode = "single",
-                         default = list_books[1])
+                         default = list_books[-1])
     
     cocktail_info = [cocktail for cocktail in book if cocktail["name"] == selection][0]
 
@@ -51,3 +51,17 @@ def show_picture(cocktail_info):
 
         st.image(image = path, caption = f"{cocktail_info['name']} - {num}")
 
+def ecc_popover_info(cocktail_info):
+
+    st.write(f"### {cocktail_info.get('name')}")
+    st.divider()
+
+    col1, col2 = st.columns([1, 2])
+
+    
+    col1.write("Ingredients:")
+    for measure, ingredient in cocktail_info.get("ingredients"):
+        col1.write(f"{measure if '(' not in measure else measure.split(' ')[0]} - {ingredient}")
+
+    for key in ["glass", "garnish", "directions", "introduction", "page", "observations"]:
+        col2.write(f"{key.title()}: {cocktail_info.get(key) if cocktail_info.get(key) not in ('', None) else 'N/A'}")
